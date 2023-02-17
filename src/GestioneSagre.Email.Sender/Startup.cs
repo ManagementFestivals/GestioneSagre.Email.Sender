@@ -71,7 +71,6 @@ public class Startup
     {
         IWebHostEnvironment env = app.Environment;
 
-        //app.UseHttpsRedirection();
         app.UseCors("GestioneSagre.Email.Sender");
 
         app.UseSwagger();
