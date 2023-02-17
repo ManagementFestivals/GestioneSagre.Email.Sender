@@ -2,7 +2,6 @@
 using GestioneSagre.Email.Sender.BusinessLayer.Services;
 using GestioneSagre.Email.Sender.DataAccessLayer;
 using GestioneSagre.Email.Sender.Shared.Options;
-using MediatR;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
@@ -64,7 +63,7 @@ public class Startup
         services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
         services.Configure<SmtpOptions>(Configuration.GetSection("Smtp"));
 
-        services.AddMediatR(typeof(SendEmailHandler).Assembly);
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(SendEmailHandler).Assembly));
     }
 
     public void Configure(WebApplication app)
