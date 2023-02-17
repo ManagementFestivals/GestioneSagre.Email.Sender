@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestioneSagre.Email.Sender", "src\GestioneSagre.Email.Sender\GestioneSagre.Email.Sender.csproj", "{36081171-CD67-4EDF-A3C0-DEE4C9B07824}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestioneSagre.Email.Sender.BusinessLayer", "src\GestioneSagre.Email.Sender.BusinessLayer\GestioneSagre.Email.Sender.BusinessLayer.csproj", "{81D75054-F428-42B8-81D6-49DAC6E3A28D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestioneSagre.Email.Sender.Shared", "src\GestioneSagre.Email.Sender.Shared\GestioneSagre.Email.Sender.Shared.csproj", "{A672EE6C-4051-4076-A31C-9EE394329E9F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestioneSagre.Email.Sender.DataAccessLayer", "src\GestioneSagre.Email.Sender.DataAccessLayer\GestioneSagre.Email.Sender.DataAccessLayer.csproj", "{E22A7DB8-226B-47D6-903A-C2CFB4497C9D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestioneSagre.Email.Sender.Migrations", "src\GestioneSagre.Email.Sender.Migrations\GestioneSagre.Email.Sender.Migrations.csproj", "{FAF14693-1191-463D-AADB-31E42CF09731}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementi di soluzione", "Elementi di soluzione", "{98E9023F-11E3-4BF3-BDBA-479DFDDED3EB}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36081171-CD67-4EDF-A3C0-DEE4C9B07824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36081171-CD67-4EDF-A3C0-DEE4C9B07824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36081171-CD67-4EDF-A3C0-DEE4C9B07824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36081171-CD67-4EDF-A3C0-DEE4C9B07824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D75054-F428-42B8-81D6-49DAC6E3A28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D75054-F428-42B8-81D6-49DAC6E3A28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D75054-F428-42B8-81D6-49DAC6E3A28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D75054-F428-42B8-81D6-49DAC6E3A28D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A672EE6C-4051-4076-A31C-9EE394329E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A672EE6C-4051-4076-A31C-9EE394329E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A672EE6C-4051-4076-A31C-9EE394329E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A672EE6C-4051-4076-A31C-9EE394329E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E22A7DB8-226B-47D6-903A-C2CFB4497C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E22A7DB8-226B-47D6-903A-C2CFB4497C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E22A7DB8-226B-47D6-903A-C2CFB4497C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E22A7DB8-226B-47D6-903A-C2CFB4497C9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF14693-1191-463D-AADB-31E42CF09731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF14693-1191-463D-AADB-31E42CF09731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF14693-1191-463D-AADB-31E42CF09731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF14693-1191-463D-AADB-31E42CF09731}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92E861C7-D471-4C31-A1D1-62F00321E31A}
+	EndGlobalSection
+EndGlobal
