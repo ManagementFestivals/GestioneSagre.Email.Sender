@@ -60,6 +60,8 @@ public class Startup
         services.AddSingleton<IEmailSender, MailKitEmailSender>();
         services.AddSingleton<IEmailClient, MailKitEmailSender>();
 
+        services.AddScoped<IEmailService, EmailService>();
+
         services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
         services.Configure<SmtpOptions>(Configuration.GetSection("Smtp"));
 

@@ -1,24 +1,22 @@
 ﻿using GestioneSagre.Email.Sender.BusinessLayer.Command;
+using GestioneSagre.Email.Sender.BusinessLayer.Services;
 using GestioneSagre.Email.Sender.Controllers.Common;
-using GestioneSagre.Email.Sender.DataAccessLayer;
-using GestioneSagre.Email.Sender.Shared.Enums;
 using GestioneSagre.Email.Sender.Shared.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GestioneSagre.Email.Sender.Controllers;
 
 public class HomeController : BaseController
 {
     private readonly ILogger<HomeController> logger;
-    private readonly EmailSenderDbContext dbContext;
+    private readonly IEmailService emailService;
     private readonly IMediator mediator;
 
-    public HomeController(ILogger<HomeController> logger, EmailSenderDbContext dbContext, IMediator mediator)
+    public HomeController(ILogger<HomeController> logger, IEmailService emailService, IMediator mediator)
     {
         this.logger = logger;
-        this.dbContext = dbContext;
+        this.emailService = emailService;
         this.mediator = mediator;
     }
 
@@ -27,30 +25,22 @@ public class HomeController : BaseController
     {
         try
         {
-            var result = await mediator.Send(new SendEmailCommand(request));
+            var message = await emailService.GetEmailMessageAsync(request.MessageId);
 
-            var message = await dbContext.EmailMessages
-                .AsNoTracking()
-                .Where(x => x.MessageId == request.MessageId)
-                .FirstOrDefaultAsync();
+            if (message == null)
+            {
+                return NotFound();
+            }
+
+            var result = await mediator.Send(new SendEmailCommand(request));
 
             if (!result.Succeeded)
             {
-                var entity1 = await dbContext.EmailMessages.FindAsync(message.Id);
-                var newCount = entity1.SenderCount + 1;
-
-                entity1.ChangeSenderCount(newCount);
-
-                await dbContext.SaveChangesAsync();
-
+                await emailService.IncrementEmailCounter(message.Id);
                 return BadRequest();
             }
 
-            var entity2 = await dbContext.EmailMessages.FindAsync(message.Id);
-            entity2.ChangeStatus(MailStatus.Sent);
-
-            await dbContext.SaveChangesAsync();
-
+            await emailService.ChangeEmailSendStatus(message.Id);
             return Ok();
         }
         catch (Exception ex)
