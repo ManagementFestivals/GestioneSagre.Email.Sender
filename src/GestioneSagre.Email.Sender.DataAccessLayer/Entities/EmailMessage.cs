@@ -1,4 +1,4 @@
-﻿using GestioneSagre.Email.Sender.Shared.Enums;
+﻿using GestioneSagre.SharedKernel.Enums;
 
 namespace GestioneSagre.Email.Sender.DataAccessLayer.Entities;
 

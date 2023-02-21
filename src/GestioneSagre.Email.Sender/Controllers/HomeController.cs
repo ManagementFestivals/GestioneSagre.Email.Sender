@@ -1,7 +1,7 @@
 ﻿using GestioneSagre.Email.Sender.BusinessLayer.Command;
 using GestioneSagre.Email.Sender.BusinessLayer.Services;
 using GestioneSagre.Email.Sender.Controllers.Common;
-using GestioneSagre.Email.Sender.Shared.Models;
+using GestioneSagre.SharedKernel.Models.Email;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
