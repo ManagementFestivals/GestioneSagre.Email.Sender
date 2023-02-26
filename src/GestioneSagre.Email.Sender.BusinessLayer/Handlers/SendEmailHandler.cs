@@ -1,6 +1,6 @@
 ﻿using GestioneSagre.Email.Sender.BusinessLayer.Command;
 using GestioneSagre.Email.Sender.BusinessLayer.Services;
-using GestioneSagre.Email.Sender.Shared.Models;
+using GestioneSagre.SharedKernel.Models.Email;
 using MediatR;
 
 namespace GestioneSagre.Email.Sender.BusinessLayer.Handlers;

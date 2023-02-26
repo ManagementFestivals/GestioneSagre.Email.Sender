@@ -1,6 +1,6 @@
 ﻿using GestioneSagre.Email.Sender.DataAccessLayer;
 using GestioneSagre.Email.Sender.DataAccessLayer.Entities;
-using GestioneSagre.Email.Sender.Shared.Enums;
+using GestioneSagre.SharedKernel.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
