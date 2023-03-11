@@ -1,8 +1,7 @@
 ﻿using GestioneSagre.Email.Sender.BusinessLayer.Handlers;
 using GestioneSagre.Email.Sender.BusinessLayer.Services;
 using GestioneSagre.Email.Sender.DataAccessLayer;
-using GestioneSagre.Email.Sender.Shared.Options;
-using Microsoft.AspNetCore.Identity.UI.Services;
+using GestioneSagre.EmailSender.Extentions;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -57,14 +56,11 @@ public class Startup
             });
         });
 
-        services.AddSingleton<IEmailSender, MailKitEmailSender>();
-        services.AddSingleton<IEmailClient, MailKitEmailSender>();
-
         services.AddScoped<IEmailService, EmailService>();
 
         services.Configure<KestrelServerOptions>(Configuration.GetSection("Kestrel"));
-        services.Configure<SmtpOptions>(Configuration.GetSection("Smtp"));
 
+        services.AddEmailSenderService(Configuration);
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(SendEmailHandler).Assembly));
     }
 

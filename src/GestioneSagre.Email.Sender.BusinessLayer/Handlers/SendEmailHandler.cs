@@ -1,5 +1,5 @@
 ﻿using GestioneSagre.Email.Sender.BusinessLayer.Command;
-using GestioneSagre.Email.Sender.BusinessLayer.Services;
+using GestioneSagre.EmailSender.Services;
 using GestioneSagre.SharedKernel.Models.Email;
 using MediatR;
 
@@ -16,7 +16,7 @@ public class SendEmailHandler : IRequestHandler<SendEmailCommand, EmailSendRespo
 
     public async Task<EmailSendResponse> Handle(SendEmailCommand request, CancellationToken cancellationToken)
     {
-        var result = await emailClient.SendEmailAsync(request.RecipientEmail, string.Empty, request.Subject, request.HtmlMessage);
+        var result = await emailClient.SendEmailAsync(request.RecipientEmail, string.Empty, request.Subject, request.HtmlMessage, cancellationToken);
 
         if (!result)
         {
